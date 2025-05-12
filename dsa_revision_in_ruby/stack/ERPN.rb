@@ -19,3 +19,5 @@ def eval_rpn(tokens)
     end
     return stack[0]
 end
+eval_rpn(["2", "1", "+", "3", "*"])
+
