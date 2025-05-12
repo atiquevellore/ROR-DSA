@@ -17,3 +17,6 @@ def is_valid(s)
 
     res =  stack.length  == 0 ? true : false
 end
+
+is_valid("()")
+is_valid("()[]{}")
