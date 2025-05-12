@@ -1,6 +1,5 @@
 class Node
-
-    attr_accessor :data,:next
+    attr_accessor :data, :next
 
     def initialize(data)
         @data = data
@@ -8,77 +7,71 @@ class Node
     end
 end
 
-class SingleLinkedList 
-
+class SingleLinkedList
     def initialize
         @head = nil
     end
 
     def is_empty?
-        @head == nil
+        @head.nil?
     end
 
     def push(data)
-        newnode = Node.new(data)
-        if self.is_empty?
-            @head = newnode
+        new_node = Node.new(data)
+        if is_empty?
+            @head = new_node
         else
             curr = @head
-            while curr.next!= nil
-                curr = curr.next
-            end
-            curr.next = newnode
+            curr = curr.next while curr.next
+            curr.next = new_node
         end
     end
 
     def unshift(data)
-        newnode = Node.new(data)
-        if self.is_empty?
-            @head = newnode
+        new_node = Node.new(data)
+        if is_empty?
+            @head = new_node
         else
-            newnode.next = @head
-            @head = newnode
+            new_node.next = @head
+            @head = new_node
         end
     end
 
     def shift
-        if self.is_empty?
-            "linked list is currently empty"
+        if is_empty?
+            puts "Linked list is currently empty"
         else
             curr_head = @head
-            new_head = @head.next
-            @head.next = nil
-            @head = new_head
+            @head = @head.next
+            curr_head.next = nil
         end
-
     end
 
     def pop
-        if self.is_empty?
-            "linked list is currently empty"
+        if is_empty?
+            puts "Linked list is currently empty"
         else
             curr = @head
-            while curr.next.next != nil
-                curr = curr.next
+            if curr.next.nil?
+                @head = nil
+            else
+                curr = curr.next while curr.next.next
+                curr.next = nil
             end
-            lastnode = curr.next;
-            curr.next =  nil
         end
     end
 
-
-    
     def prettyprint
         array = []
-        if self.is_empty?
-            return array
+        if is_empty?
+            array
         else
             curr = @head
-            while curr.next != nil
+            while curr
                 array << curr.data
                 curr = curr.next
             end
-            array << curr.data
+            array
         end
     end
 end
@@ -90,4 +83,4 @@ l1.push(30)
 l1.unshift(5)
 l1.shift
 l1.pop
-puts "linked list : #{l1.prettyprint}"
+puts "Linked list: #{l1.prettyprint}"
