@@ -13,3 +13,6 @@ def delete_node(node)
     node.val = node.next.val
     node.next = node.next.next
 end
+
+delete_node(ListNode.new(4))
+delete_node(ListNode.new(5))

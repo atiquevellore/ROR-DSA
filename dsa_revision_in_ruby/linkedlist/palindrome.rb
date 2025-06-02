@@ -19,3 +19,4 @@ def is_palindrome(head)
     end
     return str1 == str2
 end
+

@@ -22,3 +22,5 @@ def hasCycle(head)
     end
     return false
 end
+
+hasCycle(ListNode.new(3))

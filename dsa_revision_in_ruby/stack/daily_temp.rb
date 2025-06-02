@@ -6,9 +6,11 @@ def daily_temperatures(temperatures)
 
     temperatures.each_with_index do |temp,i|
         while !stack.empty? && temp > temperatures[stack.last]
-        prev_index = stack.pop
-        answer[prev_index] = i - prev_index
+            prev_index = stack.pop
+            answer[prev_index] = i - prev_index
         end
+
+        
         stack << i
     end
     answer
