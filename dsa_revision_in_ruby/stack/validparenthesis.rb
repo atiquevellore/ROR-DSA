@@ -1,13 +1,17 @@
+# @param {String} s
+# @return {Boolean}
 
 def is_valid(s)
     stack = []
-    map = { ")": "(", "]": "[", "}" : "{"}
+    map = {")"=>"(",
+    "}"=>"{",
+    "]"=>"[" }
 
     s.each_char do |char|
         if map[char]
             if stack && stack.last == map[char]
-               stack.pop()
-            else
+                stack.pop()
+            else 
                 return false
             end
         else
@@ -15,8 +19,5 @@ def is_valid(s)
         end
     end
 
-    res =  stack.length  == 0 ? true : false
+    return stack.empty?
 end
-
-is_valid("()")
-is_valid("()[]{}")
