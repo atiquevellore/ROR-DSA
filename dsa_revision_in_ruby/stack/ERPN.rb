@@ -1,5 +1,10 @@
 # @param {String[]} tokens
 # @return {Integer}
+# order matters in RPN for -,/ 
+# so we need to pop the last two elements and then push the result back
+# for +,*, we can just pop the last two elements and push the result back
+# for /, we need to convert to float and then convert back to int
+# for -, we need to pop the last two elements and then subtract the first popped from the second popped
 def eval_rpn(tokens)
     stack = []
     tokens.each do |chr|
